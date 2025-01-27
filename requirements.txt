@@ -1,0 +1,4 @@
+fastapi==0.100.0  # FastAPI for building the API
+uvicorn[standard]==0.23.2  # ASGI server to run the FastAPI app
+requests==2.31.0  # To make HTTP requests to uHunt and Codeforces APIs
+python-multipart==0.0.6  # For handling multipart/form-data (optional, if needed)
