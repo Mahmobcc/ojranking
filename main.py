@@ -10,12 +10,12 @@ cache = {}
 
 def fetch_data():
     # List of user IDs
-    uhunt_ids = ["mahmodul00", 654321]  # Replace with actual uHunt IDs
-    codeforces_ids = ["mahmodul00", "user2"]  # Replace with actual Codeforces handles
+    uhunt_ids = [mahmodul00, 654321]  # Replace with actual uHunt IDs
+    codeforces_ids = [mahmodul00, "user2"]  # Replace with actual Codeforces handles
     
     # Fetch uHunt data
     for user_id in uhunt_ids:
-        response = requests.get(f"https://uhunt.onlinejudge.org/api/user/{user_id}")
+        response = requests.get(f"https://uhunt.onlinejudge.org/u/{user_id}")
         if response.status_code == 200:
             cache[user_id] = {"uhunt": response.json()["solved"]}
     
@@ -23,8 +23,8 @@ def fetch_data():
     for handle in codeforces_ids:
         response = requests.get(f"https://codeforces.com/api/user.status?handle={handle}")
         if response.status_code == 200:
-            solved_count = len(set([problem["contestId"] for problem in response.json()["result"] if problem["verdict"] == "OK"]))
-            cache[handle] = {"codeforces": solved_count}
+            #solved_count = len(set([problem["contestId"] for problem in response.json()["result"] if problem["verdict"] == "OK"]))
+            cache[handle] = {"codeforces": response.json()["newRating"]}
 
 # Run fetch_data every 2 hours
 def update_data():
