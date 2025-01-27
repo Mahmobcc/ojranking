@@ -10,8 +10,8 @@ cache = {}
 
 def fetch_data():
     # List of user IDs
-    uhunt_ids = [123456, 654321]  # Replace with actual uHunt IDs
-    codeforces_ids = ["user1", "user2"]  # Replace with actual Codeforces handles
+    uhunt_ids = ["mahmodul00", 654321]  # Replace with actual uHunt IDs
+    codeforces_ids = ["mahmodul00", "user2"]  # Replace with actual Codeforces handles
     
     # Fetch uHunt data
     for user_id in uhunt_ids:
